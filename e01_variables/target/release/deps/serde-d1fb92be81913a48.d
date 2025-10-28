@@ -1,0 +1,14 @@
+/Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/deps/serde-d1fb92be81913a48.d: /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/build/serde-e7f9537205605f2d/out/private.rs
+
+/Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/deps/libserde-d1fb92be81913a48.rlib: /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/build/serde-e7f9537205605f2d/out/private.rs
+
+/Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/deps/libserde-d1fb92be81913a48.rmeta: /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/build/serde-e7f9537205605f2d/out/private.rs
+
+/Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/Users/bankat/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/build/serde-e7f9537205605f2d/out/private.rs:
+
+# env-dep:OUT_DIR=/Users/bankat/Documents/rust/pro-rust/e01_variables/target/release/build/serde-e7f9537205605f2d/out
