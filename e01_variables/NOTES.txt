@@ -1,0 +1,28 @@
+
+PERFOMANCE HIERACHY OF VARIABLES
+
+Stack Allocation (fastest)
+    ↓
+Reference Borrow (&)
+    ↓
+Heap Allocation (String::from)
+    ↓
+Heap Clone (slowest)
+
+1. Stack Allocation:
+- allocation is done by simply moving stack pointer
+- no heap memory allocation or system call occurs
+
+2. Reference Borrow:
+- Only copies an 8-byte pointer (address).
+- Zero heap allocation.
+- Essentially same speed as stack, sometimes 1–2 ns/ps more due to indirection.
+
+3. Heap Aloocation:
+- allocates memory on the heap.
+- The heap allocator must request space, copy data, and update a pointer on the stack.
+- Even though Rust uses efficient allocators (jemalloc or system), heap ops always cost more.
+
+4. Heap Clone
+- clone() duplicates both the pointer and the heap buffer.
+- It requires another allocation + memory copy.
