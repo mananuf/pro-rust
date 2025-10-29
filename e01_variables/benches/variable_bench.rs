@@ -18,6 +18,30 @@ fn heap_string(c: &mut Criterion) {
     });
 }
 
+fn constant_variable(c: &mut Criterion) {
+    c.bench_function("constant int variable", |b| {
+        b.iter(|| {
+            const X: i32 = 42;
+            X
+        })
+    });
+
+    c.bench_function("constant str variable", |b| {
+        b.iter(|| {
+            const X: &str = "42";
+            X
+        })
+    });
+
+    // not allowed
+    // c.bench_function("constant STring variable", |b| {
+    //     b.iter(|| {
+    //         const X: String = "42".to_string();
+    //         X
+    //     })
+    // });
+}
+
 fn clone_string(c: &mut Criterion) {
     c.bench_function("clone string", |b| {
         let s1 = String::from("Rust");
@@ -30,6 +54,24 @@ fn reference_borrow(c: &mut Criterion) {
         let s1 = String::from("Rust");
         b.iter(|| {
             let s2 = &s1;
+            s2
+        })
+    });
+}
+
+fn shadowing(c: &mut Criterion) {
+    c.bench_function("heap shadowing", |b| {
+        b.iter(|| {
+            let s1 = String::from("Rust");
+            let s2 = s1;
+            s2
+        })
+    });
+
+    c.bench_function("stack shadowing", |b| {
+        b.iter(|| {
+            let s1 = 100;
+            let s2 = s1;
             s2
         })
     });
@@ -62,5 +104,5 @@ fn longest_string(array_of_strings: &[String]) -> &String {
     array_of_strings.iter().max_by_key(|s| s.len()).unwrap()
 }
 
-criterion_group!(benches, stack_variable, heap_string, clone_string, reference_borrow, testing_iter);
+criterion_group!(benches, stack_variable, heap_string, clone_string, reference_borrow, testing_iter, constant_variable, shadowing);
 criterion_main!(benches);

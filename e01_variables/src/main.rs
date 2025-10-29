@@ -38,7 +38,7 @@ fn main() {
 
     let strings_array = vec![String::from("still"), String::from("1234567"), String::from("Mananaf"), String::from("Aisha")];
     let result = longest_string(&strings_array);
-    println!("longest: {result}")
+    println!("longest: {result}");
 }
 
 fn ownership_demo() {
