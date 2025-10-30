@@ -31,7 +31,7 @@ Use it:
 
 #### ❌ Bad: No distinction between currencies
 
-```
+```rust
 fn pay(amount: f64, account_id: u64) {
     println!("Paying {} to {}", amount, account_id);
 }
@@ -44,7 +44,7 @@ pay(ngn_balance, 5); // Mistakenly sends Naira instead of USD!
 
 #### ✅ Good: Strongly typed newtypes
 
-```
+```rust
 struct USD(f64);
 struct NGN(f64);
 
@@ -74,7 +74,7 @@ Use it:
 
 ### Example:
 #### ❌ Before (too verbose)
-```
+```rust
 use std::collections::HashMap;
 
 fn get_user_roles() -> HashMap<String, Vec<String>> {
@@ -83,7 +83,7 @@ fn get_user_roles() -> HashMap<String, Vec<String>> {
 ```
 
 #### ✅ After (type alias)
-```
+```rust
 type UserRoles = HashMap<String, Vec<String>>;
 
 fn get_user_roles() -> UserRoles {
