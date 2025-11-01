@@ -1,3 +1,5 @@
+#![allow(unused_variables)]
+
 type ColorWheel = [f32; 3];
 
 #[derive(Debug)]
