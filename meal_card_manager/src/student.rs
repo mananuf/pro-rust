@@ -1,4 +1,7 @@
-use crate::types::MealCard;
+use crate::{
+    errors::TransactionError,
+    types::{MealCard, TransactionType},
+};
 
 #[derive(Debug, Default)]
 pub struct Student {
@@ -14,6 +17,30 @@ impl Student {
             name: name.to_string(),
             level,
             ..Default::default()
+        }
+    }
+
+    pub fn apply_transaction(&mut self, txn: TransactionType) -> Result<u64, TransactionError> {
+        match self.status {
+            StudentStatus::Suspended(ref reason) => {
+                return Err(TransactionError::SuspendedAccount(reason.into()));
+            }
+            _ => {}
+        }
+
+        match txn {
+            TransactionType::Credit(amount) => {
+                self.meal_card.balance.0 += amount;
+                Ok(self.meal_card.balance.0)
+            }
+
+            TransactionType::Debit(amount) => {
+                if self.meal_card.balance.0 < amount {
+                    return Err(TransactionError::InsufficientFunds(amount));
+                }
+                self.meal_card.balance.0 -= amount;
+                Ok(self.meal_card.balance.0)
+            }
         }
     }
 }
