@@ -8,8 +8,8 @@ use crate::{
 type StudentId = u32;
 type Students = HashMap<StudentId, Student>;
 
-#[derive(Debug, Default)]
-pub struct Amount(u64);
+#[derive(Debug, Default, PartialEq)]
+pub struct Amount(pub u64);
 
 static mut STUDENT_ID: u32 = 0;
 
