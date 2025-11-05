@@ -1,10 +1,39 @@
-[package]
-name = "banking_system"
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.85"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mananuf/pro-rust/tree/main/banking_system/"
 
 [workspace]
-members = ["core", "service", "api", "infra", "services"]
+members = [
+    "bin/bank",
+    "crates/core",
+    "crates/cli",
+    "crates/services",
+    "crates/infra",
+]
 
-[dependencies]
+default-members = ["bin/bank"]
 
+# Explicitly set the resolver to version 2, which is the default for packages with edition >= 2021
+# https://doc.rust-lang.org/edition-guide/rust-2021/default-cargo-resolver.html
+resolver = "2" # Use the new dependency resolver
+
+[workspace.dependencies]
+bank = { path = "bin/bank" }
+bank-core = { path = "./crates/core" }
+bank-cli = { path = "./crates/cli" }
+bank-services = { path = "./crates/services" }
+bank-infra = { path = "./crates/infra" }
+
+rust_decimal = { version = "1.39.0", features = ["macros"] }
+thiserror = "2.0.17"
+
+[workspace.lints]
+rust.missing_debug_implementations = "warn"
+rust.missing_docs = "warn"
+rust.rust_2018_idioms = { level = "deny", priority = -1 }
+rust.unreachable_pub = "warn"
+rust.unused_must_use = "deny"
+rustdoc.all = "warn"
