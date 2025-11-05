@@ -1,0 +1,10 @@
+[package]
+name = "banking_system"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+members = ["core", "service", "api", "infra", "services"]
+
+[dependencies]
+
