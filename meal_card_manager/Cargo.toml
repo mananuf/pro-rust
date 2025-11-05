@@ -5,3 +5,10 @@ edition = "2024"
 
 [dependencies]
 thiserror = "2.0.17"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "meal_bench"
+harness = false
