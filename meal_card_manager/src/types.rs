@@ -45,7 +45,7 @@ impl CampusMealSystem {
         reason: &str,
     ) -> Result<(), CampusMealSystemError> {
         if let Some(student) = self.students.get_mut(&student_id) {
-            (*student).status = StudentStatus::Suspended(reason.to_string());
+            student.status = StudentStatus::Suspended(reason.to_string());
             return Ok(());
         }
 

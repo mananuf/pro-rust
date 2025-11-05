@@ -21,11 +21,8 @@ impl Student {
     }
 
     pub fn apply_transaction(&mut self, txn: TransactionType) -> Result<u64, TransactionError> {
-        match self.status {
-            StudentStatus::Suspended(ref reason) => {
-                return Err(TransactionError::SuspendedAccount(reason.into()));
-            }
-            _ => {}
+        if let StudentStatus::Suspended(ref reason) = self.status {
+            return Err(TransactionError::SuspendedAccount(reason.into()));
         }
 
         match txn {
