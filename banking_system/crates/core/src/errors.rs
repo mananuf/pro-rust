@@ -1,6 +1,8 @@
 use thiserror::Error;
 
-#[derive(Debug, Error)]
+use crate::account::AccountId;
+
+#[derive(Debug, Error, PartialEq)]
 pub enum AppError {
     #[error("Domain error: {0}")]
     Domain(#[from] DomainError),
@@ -8,7 +10,7 @@ pub enum AppError {
     Repo(#[from] RepoError),
 }
 
-#[derive(Debug, Error)]
+#[derive(Debug, Error, PartialEq)]
 pub enum DomainError {
     #[error("deposit error: {0}")]
     ClosedAccount(String),
@@ -16,17 +18,18 @@ pub enum DomainError {
     NegativeAmount(String),
     #[error("deposit error: {0}")]
     FrozenAccount(String),
-    // #[error("Libp2p noise error: {0}")]
-    // Libp2pNoise(#[from] libp2p::noise::Error),
-    // #[error("Libp2p swarm builder error: {0}")]
-    // Libp2pSwarmBuilder(String),
-    // #[error("Parsing Libp2p multiaddress error: {0}")]
-    // Libp2pMultiAddrParse(#[from] multiaddr::Error),
-    // #[error("Libp2p Transport error: {0}")]
-    // Libp2pTransport(#[from] TransportError<io::Error>),
-    // #[error("Libp2p gossipsub subscription error: {0}")]
-    // Libp2pGossipsubSubscription(#[from] SubscriptionError),
+    #[error("withdrawal error: {0}")]
+    InsufficientFunds(String),
+    #[error("transaction error: {0}")]
+    Unsupported(String),
+    #[error("Account {0} NOT FOUND")]
+    AccountNotFound(AccountId),
+    #[error("Transaction failed: cannot transfer to self")]
+    TransferToSelf
 }
 
-#[derive(Debug, Error)]
-pub enum RepoError {}
+#[derive(Debug, Error, PartialEq)]
+pub enum RepoError {
+    #[error("Lock Error: Lock poisened")]
+    LockPoisened,
+}
