@@ -48,12 +48,16 @@ dependencies = [
 [[package]]
 name = "bank-infra"
 version = "0.1.0"
+dependencies = [
+ "bank-core",
+]
 
 [[package]]
 name = "bank-services"
 version = "0.1.0"
 dependencies = [
  "bank-core",
+ "bank-infra",
 ]
 
 [[package]]

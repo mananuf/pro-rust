@@ -8,7 +8,7 @@ use crate::{
 pub type AccountId = u64;
 
 #[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
-pub struct Money(Decimal);
+pub struct Money(pub Decimal);
 
 pub trait AccountRepository {
     fn create(&self, account: Account) -> Result<(), RepoError>;
@@ -30,7 +30,7 @@ pub enum Transaction {
     Transfer { to: AccountId, amount: Money },
 }
 
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Default, Clone, PartialEq)]
 pub struct Account {
     pub id: AccountId,
     pub owner: CustomerId,
