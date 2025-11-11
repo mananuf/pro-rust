@@ -8,3 +8,4 @@ repository.workspace = true
 
 [dependencies]
 bank-core.workspace = true
+bank-infra.workspace = true
