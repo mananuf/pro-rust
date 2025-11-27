@@ -1,6 +1,7 @@
 use std::thread;
+use std::sync::Once;
 
-use e16_concurrency::{mpsc::execute_mpsc, shared_state::execute_shared_state, synchronized_threads::execute_synchronized_threads};
+use e16_concurrency::{mpsc::execute_mpsc, scoped_threads::execute_scoped, shared_state::execute_shared_state, spawn_threads::execute_spawm, synchronized_threads::execute_synchronized_threads};
 
 fn main() {
     println!("outside before thread 1");
@@ -26,7 +27,12 @@ fn main() {
     println!("outside thread after 3");
     println!("outside thread after 4");
 
-    // execute_mpsc();
-    // execute_shared_state();
+    execute_mpsc();
+    execute_shared_state();
     execute_synchronized_threads();
+    execute_spawm();
+    execute_scoped();
+
+    static INIT: Once = Once::new();
+    INIT.call_once(|| { /* init */ });
 }
