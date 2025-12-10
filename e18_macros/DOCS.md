@@ -157,3 +157,27 @@ Matches type positions.
 
     define_container!(Vec<String>);
 ```
+
+### 3. expr — Expressions
+
+Matches anything that evaluates.
+
+✔ Matches:
+
+- 1 + 2
+
+- "hi".to_string()
+
+- some_function()
+
+- (x * 4)
+
+```rust
+    macro_rules! double {
+        ($x:expr) => { $x * 2 };
+    }
+
+    fn main() {
+        println!("{}", double!(3 + 2)); // 10
+    }
+```
