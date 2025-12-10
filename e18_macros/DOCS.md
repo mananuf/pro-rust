@@ -133,3 +133,27 @@ Matches names only.
         println!("{}", score); // 10
     }
 ```
+
+### 2. ty — Types
+
+Matches type positions.
+
+✔ Matches:
+
+- i32
+
+- Vec<String>
+
+- Option<&'a str>
+
+```rust
+    macro_rules! define_container {
+        ($type:ty) => {
+            struct Container {
+                value: $type
+            }
+        };
+    }
+
+    define_container!(Vec<String>);
+```
