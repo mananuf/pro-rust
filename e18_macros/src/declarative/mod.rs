@@ -1,2 +1,2 @@
 pub mod ident;
-pub mod type_macro;
+pub mod type_specifier;
