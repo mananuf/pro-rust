@@ -1,4 +1,4 @@
-use e18_macros::{make_getter, make_variable};
+use e18_macros::{make_getter, make_struct, make_variable};
 
 
 macro_rules! sum {
@@ -35,10 +35,16 @@ fn main() {
     make_variable!(x);
     println!("{}", x);
 
+
     let data = Data::new(8, "Hello");
     println!("{}", data.value());
     println!("{}", data.name());
 
-    // make_getter!(macro_fn);
-    // let a = macro_fn;
+
+    // type_macros
+    make_struct!(StructBuilder; data, Vec<u8>);
+    let struct_builder = StructBuilder::new(vec![1,2,3,4,5]);
+    println!("{:#?}", struct_builder.data);
+
+    
 }
