@@ -1,4 +1,4 @@
-use e18_macros::{make_getter, make_struct, make_variable};
+use e18_macros::{call_twice, make_getter, make_struct, make_variable};
 
 
 macro_rules! sum {
@@ -46,5 +46,10 @@ fn main() {
     let struct_builder = StructBuilder::new(vec![1,2,3,4,5]);
     println!("{:#?}", struct_builder.data);
 
-    
+    fn double(value: u8) -> u8 {
+        value * 2
+    }
+
+    let res = call_twice!(double, 2);
+    println!("{res}");
 }
